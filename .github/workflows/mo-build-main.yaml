@@ -70,3 +70,15 @@ jobs:
           containerName: off-back-dev
           keyKind: ${{ vars.MO_API_KIND__MAIN }}
           token: ${{ secrets.MO_API_TOKEN__f8a5e2d867b83112e266__MAIN }}
+      - id: releaseWithMogenius-2f65df96acb49b82c697
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__MAIN }}:${{ env.VERSION }}
+          kind: Deployment
+          namespace: staging
+          resourceName: of-backend
+          containerName: of-backend
+          keyKind: ${{ vars.MO_API_KIND__MAIN }}
+          token: ${{ secrets.MO_API_TOKEN__2f65df96acb49b82c697__MAIN }}
